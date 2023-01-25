@@ -219,6 +219,7 @@ lvim.builtin.which_key.mappings.s.l={"<cmd>Telescope live_grep<cr>","live_grep"}
 lvim.builtin.which_key.mappings.s.t={"<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>","theme"}
 lvim.builtin.which_key.mappings.s.s={"<cmd>w!<CR>","save"}
 lvim.builtin.which_key.mappings.s.y={"<cmd>Telescope yank_history<CR>","yank history"}
+lvim.builtin.which_key.mappings.s.b={"<cmd>Telescope buffers<CR>","buffers"}
 lvim.builtin.which_key.mappings.y={
   f={"<Plug>(YankyCycleForward)","forward yankycycle"},
   b={"<Plug>(YankyCycleBackward)","backward yankycycle"},
