@@ -200,17 +200,33 @@ lvim.builtin.treesitter.highlight.enable = true
 -- })
 
 
-
+-- 开启可选插件
+lvim.builtin.terminal.active=true
 -- 自定义热键
 lvim.keys.normal_mode["<S-L>"]=":bnext<CR>"
 lvim.keys.normal_mode["<S-H>"]=":bprevious<CR>"
-lvim.keys.normal_mode["<leader>x"]=":BuflerKill<CR>"
+lvim.keys.normal_mode["<leader>x"]=":BufferKill<CR>"
+lvim.builtin.which_key.mappings.t={"<cmd>Trouble","trouble"}
 lvim.builtin.which_key.mappings.s.c={}
 lvim.builtin.which_key.mappings.w={}
+lvim.builtin.which_key.mappings.f={}
+lvim.builtin.which_key.mappings.f={require("lvim.lsp.utils").format, "Format" }
+lvim.builtin.which_key.vmappings.f={require("lvim.lsp.utils").format, "Format" }
+lvim.builtin.which_key.mappings.h={"<cmd>Alpha<CR>","homepage"}
+lvim.builtin.which_key.mappings.n={h={"<cmd>nohlsearch<CR>","no highlight"}}
 lvim.builtin.which_key.mappings.s.p={"<cmd>Telescope projects<CR>","projects"}
 lvim.builtin.which_key.mappings.s.l={"<cmd>Telescope live_grep<cr>","live_grep"}
 lvim.builtin.which_key.mappings.s.t={"<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>","theme"}
 lvim.builtin.which_key.mappings.s.s={"<cmd>w!<CR>","save"}
+lvim.builtin.which_key.mappings.s.y={"<cmd>Telescope yank_history<CR>","save"}
+lvim.builtin.which_key.mappings.y={
+  f={"<Plug>(YankyCycleForward)","forward yankycycle"},
+  b={"<Plug>(YankyCycleBackward)","backward yankycycle"},
+  p={"<Plug>(YankyPutAfter)","put after"},
+  o={"<Plug>(YankyPutBefore)","put before"},
+  i={"<Plug>(YankyGPutAfter)","Gput after"},
+  u={"<Plug>(YankyGPutBefore)","Gput before"}
+}
 
 -- 使用clang编译treesitter
 require 'nvim-treesitter.install'.compilers = { "clang" }
@@ -243,9 +259,15 @@ lvim.lsp.buffer_mappings.normal_mode['<leader>wd'] = { vim.lsp.buf.remove_worksp
 --添加插件
 lvim.plugins={
   {
-    "gbprod/yanky.nvim"
+    "gbprod/yanky.nvim",
+    config=function ()
+      require("yanky").setup()
+    end
   },
   {
-    "kdheepak/lazygit.nvim"
-  }
+  "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
 }
+
+

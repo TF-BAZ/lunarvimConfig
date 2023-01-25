@@ -1,0 +1,11 @@
+-- 延迟设置null-ls
+-- local formatters=require("lvim.lsp.null-ls.formatters")
+-- formatters.setup({
+--   {
+--     name="lua_format",
+--     filetypes={"lua"},
+--     command="lua-format",
+--     args={"-i"}
+--   }
+-- })
+
