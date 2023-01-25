@@ -270,4 +270,5 @@ lvim.plugins={
   },
 }
 
-
+-- 设置colorscheme
+lvim.colorscheme="tokyonight-moon"
