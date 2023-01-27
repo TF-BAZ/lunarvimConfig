@@ -200,8 +200,14 @@ lvim.builtin.treesitter.highlight.enable = true
 -- })
 
 
+-- 设置行号显示方式
+vim.opt.relativenumber=true
+vim.opt.cursorcolumn=true
+vim.opt.cursorline=true
+
 -- 开启可选插件
 lvim.builtin.terminal.active=true
+
 -- 自定义热键
 lvim.keys.normal_mode["<S-L>"]=":bnext<CR>"
 lvim.keys.normal_mode["<S-H>"]=":bprevious<CR>"
